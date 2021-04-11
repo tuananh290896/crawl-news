@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700&display=swap');
+
+body, h1, h2, h3, h4, h5, h6{
+  font-family: 'Dosis', sans-serif;
+}
+
+.table thead th, .table th{
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
+  color: #000;
+}
+
+.form-group label:empty{
+  display: none;
+}
+
+.navigation .pagination{
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
