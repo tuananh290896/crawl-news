@@ -28,13 +28,6 @@
                     </a>
                   </li>
 
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/ranking">
-                      <i class="fab fa-fw fa-wpforms"></i>Bảng xếp hạng
-                      <span class="badge badge-success">6</span>
-                    </a>
-                  </li>
-
               </ul>
           </div>
       </nav>

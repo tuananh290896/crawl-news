@@ -70,6 +70,10 @@
     <!-- slimscroll js -->
     <script src="backend/vendor/slimscroll/jquery.slimscroll.js"></script>
     <!-- main js -->
+    <script>
+      const CK_UPLOAD_IMG = "{{route('admin.editor.upload', ['_token' => csrf_token()])}}";
+    </script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <script src="backend/libs/js/main-js.js"></script>
 </body>
  

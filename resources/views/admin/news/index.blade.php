@@ -22,6 +22,8 @@
                 </div>
             </div>
         </div>
+
+        @include('admin.includes.messages');
         <!-- ============================================================== -->
         <!-- end pageheader  -->
         <!-- ============================================================== -->
@@ -31,29 +33,32 @@
             <!-- ============================================================== -->
             <div class="col-12">
                 <div class="card">
-                    <h5 class="card-header">Quản lý tin tức</h5>
+                    <div class="card-header card-header-with-button">
+                      <h5 class="mb-0 card-header-title">Quản lý tin tức</h5>
+                      <a href="{{route('admin.news.create')}}" class="btn btn-sm btn-success">Thêm mới</a>
+                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="bg-light">
                                     <tr class="border-0">
-                                        <th class="border-0">#</th>
-                                        <th class="border-0">Hình ảnh</th>
-                                        <th class="border-0">Tiêu đề</th>
-                                        <th class="border-0">Danh mục</th>
-                                        <th class="border-0">Link gốc</th>
-                                        <th class="border-0">Nguồn</th>
-                                        <th class="border-0">Ngày tạo</th>
+                                        <th class="border-0 no-wrap">#</th>
+                                        <th class="border-0 no-wrap">Hình ảnh</th>
+                                        <th class="border-0 no-wrap">Tiêu đề</th>
+                                        <th class="border-0 no-wrap">Danh mục</th>
+                                        <th class="border-0 no-wrap">Link gốc</th>
+                                        <th class="border-0 no-wrap">Nguồn</th>
+                                        <th class="border-0 no-wrap">Ngày tạo</th>
+                                        <th class="border-0 no-wrap">Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($news as $key => $item)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $item->id }}</td>
                                             <td>
                                                 <div class="m-r-10">
-                                                    <img src="{{ $item->image_url }}" alt="{{ $item->title }}"
-                                                        class="rounded" width="45">
+                                                    <img src="{{ $item->image_url }}" alt="{{ $item->title }}" class="rounded" width="45">
                                                 </div>
                                             </td>
                                             <td>{{ $item->title }}</td>
@@ -61,8 +66,18 @@
                                             <td>
                                                 <a href="{{ $item->link }}" target="_blank">Xem</a>
                                             </td>
-                                            <td><span class="badge-dot badge-brand mr-1"></span> {{ $item->source }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td class="no-wrap"><span class="badge-dot badge-brand mr-1"></span> {{ $item->source }}</td>
+                                            <td class="no-wrap">{{ $item->created_at }}</td>
+                                            <td>
+                                              <div class="btn-groups mt-0">
+                                                  <a class="btn btn-info btn-xs" href="{{route('admin.news.edit', $item->id)}}">
+                                                    <i class="fas fa-info-circle"></i>
+                                                  </a>
+                                                  <a class="btn btn-danger btn-xs delete-confirm" href="{{route('admin.news.delete', $item->id)}}">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                  </a>
+                                              </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
