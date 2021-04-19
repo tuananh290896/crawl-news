@@ -42,7 +42,7 @@ class CrawlRanking extends Command
     public function getCategories($doc){
       return $doc->filter('.section .sidebar-left .ul-sbar a')->each(
         function (Crawler $node){
-            $link = $node->attr('href');
+            $link = $this->getCurrentAttr($node, 'href');
             $link = $this->mixUrl($link);
             return $link;
         }

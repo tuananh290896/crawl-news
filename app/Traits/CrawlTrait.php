@@ -33,6 +33,15 @@ trait CrawlTrait
         }
     }
 
+    public function getCurrentAttr($node, $attr)
+    {
+        try {
+            return $node->attr($attr);
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
     public function mixUrl($link)
     {
         return Str::startsWith($link, 'https://') ? $link : $this->baseUrl . '' . $link;

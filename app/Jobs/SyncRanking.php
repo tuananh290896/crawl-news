@@ -35,7 +35,7 @@ class SyncRanking implements ShouldQueue
     public function getRanking($connect, $path){
       $doc = $connect->getDocument($path);
 
-      $name = $doc->filter('.box-bxh .title-giaidau')->first()->text();
+      $name = $this->getHtml($doc, '.box-bxh .title-giaidau');
       $rankings = $doc->filter('.box-bxh .table-bxh tbody tr:not(:first-child)')->each(
         function (Crawler $node){
             $rank = $this->getText($node, 'td:first-child');
